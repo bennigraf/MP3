@@ -70,7 +70,8 @@ MP3 {
 		("mkfifo "++fifo).systemCmd;
 		
 		// Ensure things will be tidied up if the user recompiles
-		UI.registerForShutdown({this.finish});
+		// UI.registerForShutdown({this.finish});
+		{ this.finish }.doOnShutDown;
 	}
 	
 	// Start the LAME command - involving some elastic trickery to work out the PID of the created process.
